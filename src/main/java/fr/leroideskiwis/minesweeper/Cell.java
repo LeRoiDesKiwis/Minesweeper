@@ -51,7 +51,7 @@ public class Cell {
         gameMap.getNeighbours(location).stream().filter(Cell::isEmpty).filter(cell -> !cell.reveal).forEach(cell -> {
             cell.reveal();
             cell.revealNeighbours(gameMap);
-            gameMap.getNeighbours(location).stream().filter(cell1 -> !cell1.reveal && cell1.value > 0).forEach(Cell::reveal);
+            //gameMap.getNeighbours(location).stream().filter(cell1 -> !cell1.reveal && cell1.value > 0).forEach(Cell::reveal);
         });
     }
 

@@ -24,8 +24,6 @@ public class GameMap {
     public boolean isState(GameState gameState){
         return this.state == gameState;
     }
-
-
     private void createBombs(){
         List<Location> locations = new ArrayList<>();
         Random random = new Random();

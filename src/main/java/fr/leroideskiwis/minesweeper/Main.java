@@ -7,24 +7,21 @@ public class Main {
 
     public static void main(String[] args) {
         int width = 9;
-        int heigth = 9;
+        int heigth = width;
         int bombsNumber = 10;
         if(args.length >= 3){
-            width = Integer.parseInt(args[0]);
-            heigth = Integer.parseInt(args[1]);
-            bombsNumber = Integer.parseInt(args[2]);
+            width = Integer.parseInt(args[1]);
+            heigth = Integer.parseInt(args[2]);
+            bombsNumber = Integer.parseInt(args[0]);
         }
         GameMap gameMap = new GameMap(width, heigth, bombsNumber);
         Scanner scanner = new Scanner(System.in);
         CommandManager commandManager = new CommandManager(gameMap);
 
         boolean exit = false;
+        System.out.println(gameMap);
         while(!exit && gameMap.isState(GameState.PLAYING)){
-            exit = !commandManager.handleCommand(scanner);
-            if(exit){
-                System.out.println("Are you sure to exit ?");
-                if(!scanner.nextLine().equals("yes")) exit = false;
-            }
+            commandManager.handleCommand(scanner);
             System.out.println(gameMap);
 
             if(gameMap.isState(GameState.LOSE)){
